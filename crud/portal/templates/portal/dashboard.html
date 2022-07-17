@@ -1,0 +1,11 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}CRUD :: Dashboard{% endblock %}
+
+{% block content %}
+    {% include "portal/navbar.html" %}
+
+    {% include "portal/dashboard_counter.html" %}
+
+    {% include "portal/dashboard_datatable.html" %}
+{% endblock %}
