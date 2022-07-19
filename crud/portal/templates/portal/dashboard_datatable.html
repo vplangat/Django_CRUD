@@ -2,32 +2,22 @@
   <div class="row">
     <div class="col-sm-5">
       <div class="card bg-light mb-3">
-        <div class="card-header">Top 5 Customers</div>
+        <div class="card-header">Customers</div>
         <div class="card-body">
-          <table class="table table-dark table-hover">
+          <table class="table table-light table-hover">
             <thead>
               <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Names</th>
                 <th>Email</th>
               </tr>
             </thead>
             <tbody>
+            {% for c in customers %}
               <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
+                <td>{{c.name}}</td>
+                <td>{{c.email}}</td>
               </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-              </tr>
+            {% endfor %}
             </tbody>
           </table>
         </div>
@@ -35,40 +25,40 @@
     </div>
     <div class="col-sm-7">
       <div class="card bg-light mb-3">
-        <div class="card-header">5 Latest Orders</div>
+        <div class="card-header">Products</div>
         <div class="card-body">
-          <table class="table table-dark table-hover">
+          <table class="table table-light table-hover">
             <thead>
               <tr>
                 <th>Product</th>
-                <th>Date Ordered</th>
-                <th>Status</th>
-                <th>Update</th>
-                <th>Cancel</th>
+                <th>Unit Price</th>
+                <th>Qty</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
+            {% for p in products %}
               <tr>
-                <td>Mac Mini</td>
-                <td>Jul. 17, 2022, 5:04 AM</td>
-                <td>Delivered</td>
-                <td></td>
-                <td></td>
+                <td>{{p.name}}</td>
+                <td>{{p.unit_price}}</td>
+                <td>{{p.quantity}}</td>
+                <td>
+                  <a href="update/{{p.id}}">
+                  <button type="button" class="btn btn-primary">
+                    Update
+                  </button>
+                  </a>
+                </td>
+                <td>
+                  <a href="delete/{{p.id}}">
+                  <button type="button" class="btn btn-success">
+                    Delete
+                  </button>
+                  </a>
+                </td>
               </tr>
-              <tr>
-                <td>Mac Book Air 2022</td>
-                <td>Jul. 17, 2022, 9:04 AM</td>
-                <td>Placed</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>PS5 Standard</td>
-                <td>Jul. 18, 2022, 12:04 PM</td>
-                <td>Pending</td>
-                <td></td>
-                <td></td>
-              </tr>
+            {% endfor %}
             </tbody>
           </table>
         </div>

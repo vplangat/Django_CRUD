@@ -6,4 +6,55 @@
 
 {% block content %}
     {% include "portal/navbar.html" %}
+
+    <div class="container-fluid" style="position: relative; margin-top: 10px;">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card bg-light mb-3">
+            <div class="card-header">Products</div>
+            <div class="card-body">
+              <table class="table table-light table-hover">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Unit Price</th>
+                    <th>Qty</th>
+                    <th>Category</th>
+                    <th>In Stock</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for p in products %}
+                  <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.unit_price}}</td>
+                    <td>{{p.quantity}}</td>
+                    <td>{{p.category}}</td>
+                    <td>{{p.is_in_stock}}</td>
+                    <td>
+                      <a href="update/{{p.id}}">
+                      <button type="button" class="btn btn-primary">
+                        Update
+                      </button>
+                      </a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a href="delete/{{p.id}}">
+                      <button type="button" class="btn btn-success">
+                        Delete
+                      </button>
+                    </td>
+                    <td>
+
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}
