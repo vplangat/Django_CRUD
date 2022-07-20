@@ -16,4 +16,5 @@ def products(request):
 
 
 def customers(request):
-    return render(request, 'portal/customers.html')
+    total_customers = Customer.objects.all()
+    return render(request, 'portal/customers.html', {'customers': total_customers})

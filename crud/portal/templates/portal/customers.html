@@ -6,4 +6,53 @@
 
 {% block content %}
     {% include "portal/navbar.html" %}
+
+    <div class="container-fluid" style="position: relative; margin-top: 10px;">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card bg-light mb-3">
+            <div class="card-header">Customers</div>
+            <div class="card-body">
+              <table class="table table-light table-hover">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date Created</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for c in customers %}
+                  <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.phone}}</td>
+                    <td>{{c.date_created}}</td>
+                    <td>
+                      <a href="update/{{c.id}}">
+                      <button type="button" class="btn btn-primary">
+                        Update
+                      </button>
+                      </a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a href="delete/{{c.id}}">
+                      <button type="button" class="btn btn-success">
+                        Delete
+                      </button>
+                    </td>
+                    <td>
+
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}
